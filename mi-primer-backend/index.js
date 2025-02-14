@@ -61,6 +61,35 @@ app.get('/api/div/:num1/:num2', (req, res) => {
     }
 })
 
+//endpoint que obtiene un usuario por ID
+const users = [
+    {
+        id: 1,
+        name: 'Julio',
+        age: 32
+    },
+    {
+        id: 2,
+        name: 'Maria',
+        age: 28
+    },
+    {
+        id: 3,
+        name: 'Carlos',
+        age: 30
+    }
+]
+app.get('/api/user/:id', (req, res) => {
+    const id = parseInt(req.params.id)
+    const user = users.find(u => u.id === id)
+    if (user) {
+        res.json(user)
+    }
+    else {
+        res.status(404).json('Usuario no encontrado')
+    }
+    res.json(id)
+})
 
 // inicio del servidor
 
