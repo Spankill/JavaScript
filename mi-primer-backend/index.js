@@ -3,6 +3,7 @@ const app = express();
 const port = 3001;
 const connectDB = require('./db');
 const User = require('./models/user'); // Corregido: User con mayúscula
+const { body, validationResult } = require('express-validator');
 
 connectDB();
 app.use(express.json()); // Middleware
@@ -49,20 +50,30 @@ app.get('/api/user/:id', async (req, res) => {
 });
 
 // Endpoint para CREAR nuevo usuario
-app.post('/api/user', async (req, res) => {
-    try {
-        const newUser = new User({
-            id: await generateId(),
-            name: req.body.name,
-            age: req.body.age,
-            city: req.body.city,
-        });
-        await newUser.save();
-        res.status(201).json(newUser);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
-});
+app.post('/api/user',
+    [
+        body('name').notEmpty().withMessage('El nombre es obligatorio'),
+        body('age').isInt().withMessage('La edad debe ser un numero positivo'),
+        body('city').notEmpty().withMessage('La ciudad es obligatoria'),
+    ],
+    async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errores: errors.array() });
+        }
+        try {
+            const newUser = new User({
+                id: await generateId(),
+                name: req.body.name,
+                age: req.body.age,
+                city: req.body.city,
+            });
+            await newUser.save();
+            res.status(201).json(newUser);
+        } catch (error) {
+            res.status(400).json({ error: error.message });
+        }
+    });
 
 // Endpoint para actualizar un usuario
 app.put('/api/user/:id', async (req, res) => {
