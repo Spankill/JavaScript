@@ -22,11 +22,36 @@ const generateId = async () => {
 };
 
 //primer Middleware (registro de Hora,Metodo,y URL)
-app.use((req, res, next) => {
-    console.log('[${new Date().toISOString()}] ${req.method} ${req.url}');
-    next();
-})
+//app.use((req, res, next) => {
+//    console.log('[${new Date().toISOString()}] ${req.method} ${req.url}');
+//    next();
+//})
 
+
+
+
+//Middleware de Logs
+const fs = require('fs');
+const path = require('path');
+
+const loggingMiddleware = (req, res, next) => {
+    const logFilePath = path.join(__dirname, 'log.txt');
+    const logMessage = `[${new Date().toISOString()}] ${req.method} ${req.url}\n`;
+
+    console.log('Middleware de logging ejecutado'); // Verifica que el middleware se ejecute
+    console.log('Ruta del archivo de log:', logFilePath); // Verifica la ruta del archivo
+
+    // Escribe el mensaje en el archivo log.txt
+    fs.appendFile(logFilePath, logMessage, (err) => {
+        if (err) {
+            console.error('Error al escribir en el archivo de log:', err);
+        }
+    });
+
+    next(); // Pasa la solicitud al siguiente middleware o ruta
+};
+
+app.use(loggingMiddleware);
 
 //Middleware de autenticacion
 const autenticado = (req, res, next) => {
@@ -36,9 +61,6 @@ const autenticado = (req, res, next) => {
     }
     next();
 };
-
-
-
 
 // Ruta principal
 app.get('/', (req, res) => {
