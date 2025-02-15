@@ -4,6 +4,7 @@ const port = 3001;
 const connectDB = require('./db');
 const User = require('./models/user'); // Corregido: User con mayúscula
 const { body, validationResult } = require('express-validator');
+require('dotenv').config()
 
 connectDB();
 app.use(express.json()); // Middleware
@@ -27,6 +28,18 @@ app.use((req, res, next) => {
 })
 
 
+//Middleware de autenticacion
+const autenticado = (req, res, next) => {
+    const token = req.header('Authorization');
+    if (!token || token !== process.env.TOKEN_SECRETO) {
+        return res.status(401).json({ mensaje: 'Acceso no autorizado' });
+    }
+    next();
+};
+
+
+
+
 // Ruta principal
 app.get('/', (req, res) => {
     return res.send('HOLA MUNDO!');
@@ -34,7 +47,7 @@ app.get('/', (req, res) => {
 
 
 // Endpoint que obtiene un usuario por ID
-app.get('/api/user/:id', async (req, res) => {
+app.get('/api/user/:id', autenticado, async (req, res) => {
     try {
         const user = await User.findOne({ id: req.params.id });
         if (!user) {
@@ -103,6 +116,15 @@ app.delete('/api/user/:id', async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 });
+
+//Middleware para manejo de errores
+app.use((err, req, res, next) => {
+    console.log(err.stack);
+    res.status(500).json({ mensaje: 'Algo salio mal en el servidor' })
+});
+
+
+
 
 // Inicio del servidor
 app.listen(port, () => {
