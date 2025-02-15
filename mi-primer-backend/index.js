@@ -19,8 +19,11 @@ const generateId = async () => {
     return lastUser ? lastUser.id + 1 : 1;
 };
 
-
-
+//primer Middleware (registro de Hora,Metodo,y URL)
+app.use((req, res, next) => {
+    console.log('[${new Date().toISOString()}] ${req.method} ${req.url}');
+    next();
+})
 
 
 // Ruta principal
