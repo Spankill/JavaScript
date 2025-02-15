@@ -28,57 +28,6 @@ app.get('/', (req, res) => {
     return res.send('HOLA MUNDO!');
 });
 
-// Endpoint para obtener datos de usuarios
-app.get('/api/datos', (req, res) => {
-    const datos = {
-        name: 'Agapito',
-        age: 40,
-        city: 'La Paz'
-    };
-    return res.json(datos);
-});
-
-// Endpoint con parámetros sencillos
-app.get('/api/saludo/:name', (req, res) => {
-    const name = req.params.name;
-    return res.send('Hola, ' + name);
-});
-
-// Endpoint que suma dos números
-app.get('/api/suma/:num1/:num2', (req, res) => {
-    const num1 = parseFloat(req.params.num1);
-    const num2 = parseFloat(req.params.num2);
-    const resultado = num1 + num2;
-    return res.json(resultado);
-});
-
-// Endpoint que resta dos números
-app.get('/api/resta/:num1/:num2', (req, res) => {
-    const num1 = parseFloat(req.params.num1);
-    const num2 = parseFloat(req.params.num2);
-    const resultado = num1 - num2;
-    return res.json(resultado);
-});
-
-// Endpoint que multiplica dos números
-app.get('/api/multi/:num1/:num2', (req, res) => {
-    const num1 = parseFloat(req.params.num1);
-    const num2 = parseFloat(req.params.num2);
-    const resultado = num1 * num2;
-    return res.json(resultado);
-});
-
-// Endpoint que divide dos números
-app.get('/api/div/:num1/:num2', (req, res) => {
-    const num1 = parseFloat(req.params.num1);
-    const num2 = parseFloat(req.params.num2);
-    if (num2 === 0) {
-        return res.status(400).send('Error: División por cero');
-    } else {
-        const resultado = num1 / num2;
-        return res.json(resultado);
-    }
-});
 
 // Endpoint que obtiene un usuario por ID
 app.get('/api/user/:id', async (req, res) => {
