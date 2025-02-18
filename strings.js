@@ -19,10 +19,10 @@ console.log(greeting.toUpperCase()); // convertir a mayusculas
 console.log(greeting.toLowerCase()); // convertir a minusculas
 console.log(greeting.indexOf("Saludos")); //indice
 console.log(greeting.indexOf("Carlos")); //
-console.log(greeting.includes("Como es !")); //
+console.log(greeting.includes("Como es !")); //Incluye
 console.log(greeting.includes("Carlitos)"));
-console.log(greeting.slice(0, 10)); //seccion
-console.log(greeting.replace("Carlos", "Tu PAPI"));
+console.log(greeting.slice(0, 10)); //secciona o corta la cadena
+console.log(greeting.replace("Carlos", "Tu PAPI")); //reemplaza cadenas
 
 //Template literals
 let message = 'saludos desde la tierra de los ancestros!'
