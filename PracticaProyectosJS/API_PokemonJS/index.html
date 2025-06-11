@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API POKEMON JAVASCRIPT</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <nav class="nav">
+        <img src="./pokemon.png" alt="pokemon logo">
+        <ul class="nav-list">
+            <li class="navitem"><button class="btn-header" id="ver_todos">Ver Todos</button></li>
+            <li class="navitem"><button class="btn-header normal" id="normal">Normal</button></li>
+            <li class="navitem"><button class="btn-header fire" id="fire">Fire</button></li>
+            <li class="navitem"><button class="btn-header water" id=" water">Water</button></li>
+            <li class="navitem"><button class="btn-header grass" id="grass">Grass</button></li>
+            <li class="navitem"><button class="btn-header electric" id="electric">Electric</button></li>
+            <li class="navitem"><button class="btn-header ice" id="ice">Ice</button></li>
+            <li class="navitem"><button class="btn-header fighting" id="fighting">Fighting</button></li>
+            <li class="navitem"><button class="btn-header posion" id="posion">Poison</button></li>
+            <li class="navitem"><button class="btn-header ground" id="ground">Ground</button></li>
+            <li class="navitem"><button class="btn-header flying" id="flying">Flying</button></li>
+            <li class="navitem"><button class="btn-header psychic" id="psychic">Psychic</button></li>
+            <li class="navitem"><button class="btn-header bug" id="bug">Bug</button></li>
+            <li class="navitem"><button class="btn-header rock" id="rock">Rock</button></li>
+            <li class="navitem"><button class="btn-header ghost" id="ghost">Ghost</button></li>
+            <li class="navitem"><button class="btn-header dark" id="dark">Dark</button></li>
+            <li class="navitem"><button class="btn-header dragon" id="dragon">Dragon</button></li>
+            <li class="navitem"><button class="btn-header steel" id="steel">Steel</button></li>
+            <li class="navitem"><button class="btn-header fairy" id="fairy">Fairy</button></li>
+        </ul>
+    </nav>
+    <main>
+        <div id="todos">
+            <div class="pokemon-todos" id="listaPokemon">
+                <!-- <div class="pokemon">
+                    <p class="pokemon-id-back">#015</p>
+                    <div class="pokemon-img">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/132.png" alt="ditto img">
+                    </div>
+                    <div class="pokemon-info">
+                        <div class="nombre-contenedor">
+                            <p class="pokemon-id">012</p>
+                            <h2 class="pokemon-nombre">pikachu ditto </h2>
+
+                        </div>
+                        <div class="pokemon-tipos">
+                            <p class="electric tipo">electric</p>
+                            <p class="fighting tipo">Fighting</p>
+                        </div>
+                        <div class="pokemon-stats">
+                            <p class="stat">4m</p>
+                            <p class="stat">asdas</p>
+                        </div>
+                    </div>
+                </div> -->
+                
+                
+            </div>
+        </div>
+        <div class="paginacion">
+            <button id="prevBtn" type="button">ANTERIOR</button>
+            <p id="infoPagina">Pagina 1</p>
+            <button id="nextBtn" type="button">SIGUIENTE</button>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    <script src="./script.js"></script>
+</body>
+</html>
