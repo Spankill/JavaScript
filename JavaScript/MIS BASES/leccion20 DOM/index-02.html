@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo DOM con JAVASCRIPT</title>
+    <style>
+        .azul{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="azul">Ejemplo DOM</h1>
+    <p id="parrafo">Ay mi gatito miau miau!</p>
+    <p class="azul">Saludos</p>
+    <p class="azul">Otro Parrafo</p>
+
+    <script>
+        let elementos = document.getElementsByClassName('azul');
+        console.log(`# Elementos: ${elementos.length}`);
+        for( let elemento of elementos){
+            console.log(`Elemento: ${elemento.innerHTML}`);
+        }
+    </script>
+</body>
+</html>
+

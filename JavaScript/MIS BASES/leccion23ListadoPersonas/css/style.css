@@ -1,0 +1,56 @@
+html{
+    background-color: #2196f3;
+    min-height: 1000px;
+    font-family: Helvetica, sans-serif;
+    background: url(../circuito.png), #00701c;
+    background: url(../circuito.png),
+    -webkit-gradient(linear, right top, left top, from(#f32121), to(#c100a1));
+    background: url(../circuito.png),
+    linear-gradient(to left, #66bf00, #9500ff);
+}
+
+h1{
+    color: #ffffff;
+    padding: 10px;
+}
+
+.contenedor{
+    max-width: 400px;
+    margin: 50px auto;
+    background: rgb(252, 245, 27);
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.5);
+}
+
+#cabecera{
+    background-color: #3f51b5;
+    text-align: center;
+}
+
+#forma{
+    display: flex;
+    gap: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+input{
+    border-radius: 6px;
+    border-color: #22e2ff;
+    box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.6);
+    width: 250px;
+    height: 25px;
+}
+
+button{
+    background-color: #3f51b5;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-weight: bolder;
+    font-size: larger;
+    border-color: #22e2ff;
+    box-shadow: 5px 5px 5px -5px rgba(0, 0, 0, 0.6);
+}
