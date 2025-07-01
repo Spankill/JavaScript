@@ -1,0 +1,37 @@
+body{
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      height: 100vh;
+      align-items: center;
+      font-family: cursive;
+      background: rgb(137, 17, 107);
+}
+
+.container{
+      width: 500px;
+      height: 200px;
+      background-color: rgb(18, 219, 152);
+      border-radius: 10px;
+      box-shadow: 1px 5px 6px rgba(190, 254, 236, 0.732);
+      min-width: 400px;
+      padding: 40px 20px;
+      margin: 15px;
+      color: black;
+      position: relative;
+}
+
+img{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: -50px;
+}
+
+.usuario{
+      font-size: 13px;
+      font-weight: 100;
+}
